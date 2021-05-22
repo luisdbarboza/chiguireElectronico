@@ -1,5 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripcion
 
+Aplicacion web de una sola pagina(SPA), revista electronica de temas de tecnologia, actualidad y ciencia, construida con el stack MERN.
+
+## Caracteristicas
+* Algunos de los paquetes utilizados son: mongoose, multer, jsonwebtoken, entre otros.
+* Imagenes provenientes de un servicio de cloudinary
+* Rest api hecha en nodejs con mongodb, documentacion disponible en:  https://documenter.getpostman.com/view/15808264/TzXtJ173
+* Fronend hecho con ReactJS y SASS
+* 
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,0 +1,367 @@
+.user-config-page-wrapper {
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+.user-config-page-wrapper.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%header-modal {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 0.5rem 0px;
+
+  span {
+    font-size: 2rem;
+  }
+
+  .close-button {
+    @extend %close-button;
+    margin: 0;
+  }
+}
+
+/****************************** MODAL DE CONFIGURACION DE USUARIO *******************************/
+.user-config {
+  @extend %modal-window;
+
+  %button {
+    height: min-content;
+    background-color: fuchsia;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: darken($color: fuchsia, $amount: 10);
+      cursor: pointer;
+    }
+  }
+
+  .title-section {
+    @extend %header-modal;
+  }
+
+  .password-section {
+    margin: 1rem;
+
+    button {
+      @extend %button;
+    }
+
+    span {
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+  }
+
+  .password-change-notification {
+    background-color: olive;
+    width: 95%;
+    border-radius: 5px;
+    color: white;
+    margin: 1rem;
+    padding: 5px;
+  }
+
+  .email-section,
+  .nickname-section {
+    display: flex;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+      font-weight: bold;
+      width: 50%;
+
+      input {
+        border: none;
+        box-shadow: 0px 0px 3px gray;
+        height: 1.5rem;
+
+        &:focus {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .profile-pic-section {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+
+    .pic-wrapper {
+      @extend %pic-wrapper;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.5rem;
+        span {
+          @extend %button;
+        }
+      }
+
+      span {
+        font-size: 1vw;
+      }
+    }
+  }
+
+  input[type="submit"] {
+    align-self: flex-end;
+    margin: 1rem;
+    @extend %button;
+  }
+}
+
+/******************************** MODAL DE HISTORIAL DE COMENTARIOS ********************************/
+.comments-history {
+  @extend %modal-window;
+
+  .header-section {
+    @extend %header-modal;
+  }
+}
+
+//dekstops
+// @media(max-width: 1200px) {
+
+// }
+
+//laptops
+@media (max-width: 1025px) {
+  $margins: 1rem;
+  $buttonFontSize: 1.2rem;
+  $normalFontSize: 1rem;
+
+  .user-config {
+    margin: $margins;
+
+    .title-section {
+      margin: $margins;
+
+      span {
+        font-size: 2.5vw;
+      }
+      .close-button {
+        font-size: $normalFontSize;
+      }
+    }
+
+    .password-section {
+      margin: $margins;
+
+      button {
+        font-size: $buttonFontSize;
+      }
+
+      span {
+        font-size: $normalFontSize;
+      }
+    }
+
+    .password-change-notification {
+      font-size: $normalFontSize;
+    }
+
+    .email-section,
+    .nickname-section {
+      font-size: $normalFontSize;
+
+      label {
+        margin: $margins;
+        font-size: $normalFontSize;
+        input {
+          height: 1rem;
+        }
+      }
+    }
+
+    .profile-pic-section {
+      margin: $margins;
+
+      .pic-wrapper {
+        width: 65px;
+        height: 65px;
+        img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      div {
+        label span {
+          font-size: $buttonFontSize;
+        }
+        span {
+          font-size: $normalFontSize;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      font-size: $normalFontSize;
+    }
+  }
+}
+
+//tablets
+@media (max-width: $breakpoint-tablet) {
+  $margins: 1rem;
+  $buttonFontSize: 1rem;
+  $normalFontSize: 0.9rem;
+
+  .user-config {
+    margin: $margins;
+
+    .title-section {
+      margin: $margins;
+
+      span {
+        font-size: 3vw;
+      }
+      .close-button {
+        font-size: $normalFontSize;
+      }
+    }
+
+    .password-section {
+      margin: $margins;
+
+      button {
+        font-size: $buttonFontSize;
+      }
+
+      span {
+        font-size: $normalFontSize;
+      }
+    }
+
+    .password-change-notification {
+      font-size: $normalFontSize;
+    }
+
+    .email-section,
+    .nickname-section {
+      font-size: $normalFontSize;
+
+      label {
+        margin: $margins;
+        font-size: $normalFontSize;
+        input {
+          height: 1rem;
+        }
+      }
+    }
+
+    .profile-pic-section {
+      margin: $margins;
+
+      div {
+        label span {
+          font-size: $buttonFontSize;
+        }
+        span {
+          font-size: $normalFontSize;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      font-size: $normalFontSize;
+    }
+  }
+}
+
+//moviles
+@media (max-width: $breakpoint-mobile) {
+  $margins: 0.5rem;
+  $buttonFontSize: 0.8rem;
+  $normalFontSize: 0.7rem;
+
+  .user-config {
+    margin: $margins;
+
+    .title-section {
+      margin: $margins;
+
+      .close-button {
+        font-size: 0.6rem;
+      }
+    }
+
+    .password-section {
+      margin: $margins;
+
+      button {
+        font-size: $buttonFontSize;
+      }
+
+      span {
+        font-size: $normalFontSize;
+      }
+    }
+
+    .password-change-notification {
+      margin: .5rem;
+      font-size: $normalFontSize;
+    }
+
+    .email-section,
+    .nickname-section {
+      font-size: $normalFontSize;
+
+      label {
+        margin: $margins;
+        font-size: $normalFontSize;
+        input {
+          height: 1rem;
+        }
+      }
+    }
+
+    .profile-pic-section {
+      margin: $margins;
+
+      .pic-wrapper {
+        width: 60px;
+        height: 60px;
+        img {
+          width: 55px;
+          height: 55px;
+        }
+      }
+
+      div {
+        label span {
+          font-size: $buttonFontSize;
+        }
+        span {
+          font-size: $normalFontSize;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      font-size: $normalFontSize;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import "./abstracts/_index.scss";
+@import "./layout/_index.scss";
+@import "./components/_index.scss";
+@import "./pages/_index.scss";
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
+}

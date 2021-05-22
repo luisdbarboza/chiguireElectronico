@@ -1,0 +1,473 @@
+main {
+  .blue-border-div {
+    border: 10px solid #090979;
+    border-bottom: none;
+
+    .top-stories-header {
+      width: max-content;
+      margin: auto;
+      margin-top: -42px;
+      padding: 1rem;
+      background-color: #fff;
+      font-family: $header-font;
+    }
+
+    .white-background-div {
+      background-color: white;
+      width: calc(100% + 22px);
+      margin-left: -11px;
+      margin-bottom: -10px;
+    }
+  }
+}
+
+/**************************** MEJORES HISTORIAS *********************************/
+.top-stories-grid {
+  width: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "big tiny" "big tiny" "big tiny";
+  grid-template-columns: 75% 25%;
+
+  .big {
+    z-index: 2;
+    position: relative;
+    grid-area: big;
+    background-color: rebeccapurple;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .story-heading {
+      @extend %story-heading;
+      height: min-content;
+      padding: 1rem;
+      font-size: 3vw;
+    }
+  }
+
+  .tiny {
+    z-index: 2;
+    position: relative;
+    grid-area: tiny;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    align-content: stretch;
+    justify-content: stretch;
+    .tiny-story {
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        background-color: rebeccapurple;
+      }
+    }
+    .story-heading {
+      @extend %story-heading;
+      height: min-content;
+      padding: 0.5rem;
+      font-size: 1vw;
+    }
+  }
+}
+
+.recommended-news {
+  .story-heading {
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    background-color: rgba(60, 60, 60, 0.4);
+    width: 100%;
+    font-family: "Oswald";
+    color: white;
+    text-align: justify;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(120, 120, 120, 0.4);
+    }
+  }
+}
+
+/**************************** NOTICIAS RECIENTES *********************************/
+.flex-latest-newsletter {
+  @extend %post-list-wrapper;
+
+  .latest-news {
+    @extend %post-list;
+
+    .latest-news-header {
+      @extend %post-list-header;
+      font-size: 1.5rem;
+    }
+
+    .news-flex {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .single-story {
+        border-top: 2px solid black;
+        display: flex;
+        margin-bottom: 1rem;
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($color: #ddd, $amount: 5);
+        }
+        .story-thumbnail {
+          width: 40%;
+
+          img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            height: auto;
+          }
+        }
+        .story-info {
+          width: 60%;
+
+          header {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .title {
+              padding: 1rem 0 0 1rem;
+              font-family: $header-font;
+              font-weight: bold;
+              font-size: 2.5vw;
+              text-decoration: none;
+              color: black;
+
+              &:hover {
+                color: lighten(purple, 10);
+              }
+            }
+            .category {
+              font-family: $light-font;
+              padding: 0.5rem 0 0 1rem;
+              text-decoration: none;
+              color: purple;
+            }
+          }
+
+          footer {
+            @extend %post-links;
+          }
+        }
+      }
+
+      .more-stories-btn {
+        @extend %more-stories-btn;
+      }
+    }
+  }
+}
+
+/********************************* ESTILOS NEWSLETTER ************************************/
+.newsletter-column {
+  width: 30%;
+  .newsletter-form {
+    border: 10px solid #090979;
+    background-color: white;
+    position: sticky;
+    top: 180px;
+
+    .newsletter-form-header {
+      background-color: rgb(173, 143, 143);
+      width: max-content;
+      margin: auto;
+      margin-top: -42px;
+      padding: 1rem;
+      font-size: 2.2vw;
+      background-color: white;
+      font-family: "Oswald";
+    }
+    .flex-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      font-family: "Open Sans";
+      > p {
+        font-size: 2vw;
+      }
+      input {
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: 1.5vw;
+        border: 2px solid gray;
+      }
+      button {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: #090979;
+        font-size: 1.5vw;
+        color: white;
+        border: none;
+        &:hover {
+          cursor: pointer;
+          background-color: #2b2b92;
+        }
+      }
+    }
+  }
+}
+
+/**************************** ESTILOS LO MAS LEIDO ***********************************/
+.most-read-news {
+  @extend %post-list-wrapper;
+  @extend %post-list;
+  width: 95%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .most-read-header {
+    @extend %post-list-header;
+  }
+
+  ol {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 2rem 0rem 3rem;
+
+    .col {
+      flex-basis: 45%;
+
+      a {
+        text-decoration: none;
+
+        li {
+          font-family: $light-font;
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+  
+          &::marker {
+            font-size: 2rem;
+            font-family: $header-font;
+            color: $secondary-color;
+          }
+  
+          &:hover {
+            color: lighten($color: $secondary-color, $amount: 20);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**************************** MEDIA QUERIES ******************************************/
+@media (max-width: $breakpoint-tablet) {
+  $headers-font-size: 5vw;
+  $regular-font-size: 2vw;
+
+  main {
+    .blue-border-div {
+      border: 7px solid #090979;
+      border-bottom: none;
+    }
+
+    /**************************** MEJORES HISTORIAS *************************/
+    .top-stories-grid {
+      grid-template-columns: 100%;
+      width: 90%;
+      margin: auto;
+      grid-template-areas: "big" "tiny";
+
+      .big {
+        height: 50vh;
+        .story-heading {
+          padding: 1rem;
+          font-size: 2.8vw;
+        }
+      }
+
+      .tiny {
+        flex-direction: row;
+        .tiny-story {
+          width: 100%;
+        }
+        .story-heading {
+          padding: 1rem;
+          font-size: 1.3vw;
+        }
+      }
+    }
+
+    /**************************** NOTICIAS RECIENTES/NEWSLETTER *************************/
+
+    .flex-latest-newsletter {
+      flex-direction: column;
+
+      .latest-news {
+        width: 100%;
+        .news-flex {
+          .single-story {
+            .story-info {
+              header {
+                .title {
+                  font-size: $headers-font-size;
+                }
+                .category {
+                  font-size: $regular-font-size;
+                }
+              }
+              footer {
+                padding: 1rem 0 0 1rem;
+                font-size: 2vw;
+                display: flex;
+
+                img {
+                  width: 3vw;
+                }
+              }
+            }
+          }
+
+          .more-stories-btn {
+            font-size: 3vw;
+          }
+        }
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+
+        .newsletter-form-header {
+          font-size: 4vw;
+        }
+      }
+
+      .newsletter-column {
+        margin-top: 2rem;
+        width: 100%;
+        text-align: justify;
+      }
+    }
+
+    .newsletter-column .newsletter-form {
+      width: min-content;
+
+      .flex-form {
+        p, input, button {
+          font-size: $regular-font-size + 1;
+        }
+      }
+    }
+
+    .most-read-news {
+      ol {
+        flex-direction: column;
+
+        .col {
+          flex-basis: 100%;
+            li {
+              font-size: 1.3rem;
+            }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  /**************************** MEJORES HISTORIAS *************************/
+  $headers-font-size: 6vw;
+  $regular-font-size: 3vw;
+
+  main {
+    .blue-border-div {
+      border: 7px solid #090979;
+      border-bottom: none;
+    }
+
+    .top-stories-grid {
+      width: 93%;
+
+      .big {
+        .story-heading {
+          font-size: $headers-font-size - 2;
+        }
+      }
+
+      .tiny {
+        overflow: hidden;
+        overflow-x: scroll;
+
+        .tiny-story {
+          .story-heading {
+            padding: 0.2rem;
+            font-size: 1.6vw;
+          }
+        }
+      }
+    }
+
+    .flex-latest-newsletter {
+      .latest-news {
+        .news-flex {
+          .single-story {
+            .story-thumbnail {
+              width: 40%;
+            }
+
+            .story-info {
+              width: 60%;
+              header {
+                .title {
+                  font-size: 6vw;
+                }
+                .category {
+                  font-size: $regular-font-size;
+                }
+              }
+              footer {
+                padding: 1rem 0 0 1rem;
+                font-size: 3vw;
+
+                img {
+                  width: 3vw;
+                }
+              }
+            }
+          }
+
+          .more-stories-btn {
+            font-size: $regular-font-size + 1;
+          }
+        }
+      }
+
+      .newsletter-column .newsletter-form {
+        width: min-content;
+
+        .flex-form {
+          p, input, button {
+            font-size: $regular-font-size + 1;
+          }
+        }
+      }
+    }
+
+    .most-read-news {
+      ol {
+        .col {
+            li {
+              font-size: $regular-font-size + 1;
+            }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Major Mono Display';
+    src:  url('fonts/Major_Mono_Display/MajorMonoDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src:  url('fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src:  url('fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+$logo-font: 'Major Mono Display';
+$header-font: 'Oswald';
+$light-font: 'Open Sans';
+$primary-color: #fff;
+$secondary-color: #090979;
+$page-width: 90%;
+$breakpoint-desktop: 1200px;
+$breakpoint-laptop: 1025px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;

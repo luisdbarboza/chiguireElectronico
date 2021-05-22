@@ -1,0 +1,30 @@
+.page-wrapper-grid {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "main-content"
+    "footer";
+}
+
+main {
+  grid-area: main-content;
+  width: $page-width;
+  margin: 10rem auto 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-main {
+  margin: 7rem auto 0px auto;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .post-main {
+    margin: 6rem auto 0px auto;
+  }
+
+  main {
+    margin: 8rem auto 0px auto;
+  }
+}

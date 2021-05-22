@@ -1,0 +1,25 @@
+{
+  "name": "Chiguire Electronico - Lo ultimo en tecnologia, a un click de distancia",
+  "short_name": "Chiguire Electronico",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "theme_color": "#FFF",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "description": "Una app de noticias acerca del mundo de la tecnologia",
+  "dir": "ltr",
+  "lang": "en-US"
+}
